@@ -1,0 +1,26 @@
+{%extends '_mapservice_base.html'%}
+{% load teams_tags %}
+{%load staticfiles%}
+
+
+
+
+{% load i18n %}
+
+{% block styles %}
+{{block.super}}
+{% endblock %}
+{% block extra_head %}
+{{block.super}}
+{% endblock %}
+{% block topbar_base %}
+{%endblock%}
+{% block scripts%}
+{{block.super}}
+{%endblock%}
+{%block body%}
+<div class="page-header">
+    <h3><span class="">MAP service</span> <small>for</small> <strong>RID</strong> MAPLIST</h3>
+</div>
+<a>go edit</a>
+{%endblock%}

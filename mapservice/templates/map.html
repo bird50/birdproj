@@ -1,0 +1,35 @@
+{% extends "_mapservice_base.html" %}
+{% load teams_tags %}
+{%load staticfiles%}
+
+{% load i18n %}
+
+{% block styles %}
+{{block.super}}
+{% endblock %}
+{% block extra_head %}
+{{block.super}}
+{% endblock %}
+{% block topbar_base %}
+{%endblock%}
+{% block scripts%}
+{{block.super}}
+<script src="{%static 'controller/swanModule.js'%}"></script>
+<script src="{%static 'mapservice/controller/mapServiceApp.js'%}"></script>
+<script>
+</script>
+{% endblock %}
+{%block body_extra_attributes%}
+ng-App='mapServiceApp'
+{%endblock%}
+{%block body%}
+<div class="page-header">
+    <h3><span class="">MAP service</span> <small>for</small> <strong>RID</strong></h3>
+</div>
+<div class="container" style="height:800px;" ng-controller="mainMapController">
+        <div id="map" style="height:80%;"></div>
+        <div class="row" style="padding:10px;height:20%;" >
+        <div id="mapHover" class="well col-md-6" ></div>
+        </div>
+</div>
+{%endblock%}

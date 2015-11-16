@@ -1,0 +1,49 @@
+{% extends "_mapservice_draw_base.html" %}
+{% load teams_tags %}
+{%load staticfiles%}
+
+{% load i18n %}
+
+{% block styles %}
+{{block.super}}
+{% endblock %}
+{% block extra_head %}
+{{block.super}}
+{% endblock %}
+{% block topbar_base %}
+{%endblock%}
+{% block scripts%}
+{{block.super}}
+<script src="{%static 'controller/swanModule.js'%}"></script>
+<script src="{%static 'mapservice/controller/mapServiceApp2.js'%}"></script>
+<script>
+    </script>
+{% endblock %}
+{%block body_extra_attributes%}
+ng-App='mapServiceApp'
+{%endblock%}
+{%block body%}
+<div class="page-header">
+    <h3><span class="">MAP service</span> <small>for</small> <strong>RID</strong></h3>
+</div>
+<div class="container"  ng-controller="mainMapController">
+    <div id="map" style="height:800px;"></div>
+    <div class="row" style="padding:10px;height:20%;" >
+        <div id="mapHover" class="well col-md-6" ></div>
+        <div id="feature_section" class="col-md-6">
+            <h4>Feature:</h4>
+            <div id="feature_table"></div>
+            <div>Action:<span id="feature_action"></span></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="well" id="selection_tool">
+            <p>Find Layer:<select ng-model="selection_layer"><option value="papa" selected>ประปา</option></select></p>
+            <p>select method:<select ng-model="selection_method"><option value="within" selected>อยู่ใน</option></select></p>
+            <button ng-Click="go_selection_layer();">Find</button>
+            <div id="feature_selection_meta"></div>
+            <div id="feature_selection_data"></div>
+        </div><!--selection tool-->
+    </div><br/><br/><br/><br/>
+</div>
+{%endblock%}

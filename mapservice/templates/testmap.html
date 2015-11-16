@@ -1,0 +1,44 @@
+{%extends '_mapservice_base.html'%}
+{% load teams_tags %}
+{%load staticfiles%}
+
+{% load leaflet_tags %}
+
+
+{% load i18n %}
+
+{% block styles %}
+{{block.super}}
+{% endblock %}
+{% block extra_head %}
+{{block.super}}
+{% endblock %}
+{% block topbar_base %}
+{%endblock%}
+{% block scripts%}
+{{block.super}}
+{%endblock%}
+{%block body%}
+<div class="page-header">
+    <h3><span class="">MAP service</span> <small>for</small> <strong>RID</strong></h3>
+</div>
+{% leaflet_js plugins="forms" %}
+{% leaflet_css plugins="forms" %}
+
+<form  id="location_form" method="post" action="{%url 'testmap2'%}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+    
+    {% for field in form.visible_fields %}
+    {{ field.errors }}
+    {{ field.help_text}}
+    {{ field }}
+    {% endfor %}
+    {{form}}
+    <div class="login-actions">
+        <button type="submit" name="submit" value="Save">Save</button>
+    </div> <!-- .actions -->
+</form>
+{%endblock%}
