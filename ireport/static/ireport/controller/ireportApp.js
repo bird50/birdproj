@@ -1,5 +1,5 @@
 //angular.module('mapServiceApp', ['ui.bootstrap'])
-angular.module('ireportApp', ['ui.bootstrap','swanModule'])
+angular.module('ireportApp', ['ui.bootstrap','swanModule']) 
 .controller('cgraphController', function($scope,swan) {
     $scope.chg2thai=function(ts){
             var thmonth = new Array ("ม.ค.","ก.พ.","มี.ค.",
