@@ -1,0 +1,54 @@
+{% extends "_graph.html" %}
+{% load teams_tags %}
+{%load staticfiles%}
+
+{% load i18n %}
+
+{% block styles %}
+{{block.super}}
+{% endblock %}
+{% block extra_head %}
+{{block.super}}
+{% endblock %}
+{% block topbar_base %}
+{%endblock%}
+{% block scripts%}
+{{block.super}}
+<script src="{%static 'controller/swanModule.js'%}"></script>
+<script src="{%static 'ireport/controller/tmgraph.js'%}"></script>
+<script>
+    </script>
+{% endblock %}
+{%block body_extra_attributes%}
+ng-App='ireportApp'
+{%endblock%}
+{%block body%}
+<div class="page-header">
+    <h3><span class="">Graph Service</span> <small>for</small> <strong>RID</strong></h3>
+</div>
+<strong>TM graph<strong> <br/>
+    {%verbatim%}<div ng-init="station_selection='c2'"></div>{%endverbatim%}
+    กรุณาเลือกสถานี
+    
+    <select ng-model="station_selection" class="form-control" value="c2">
+        <option value="c2" selected>C2</option>
+        <option value="p7a">P7A</option>
+        <option value="p17">P17</option>
+        <option value="n67">N67</option>
+        <option value="c29">C29</option>
+        <option value="n5a">N5A</option>
+        <option value="n7a">N7A</option>
+        <option value="n8a">N8A</option>
+        <option value="ma">มะขามเฒ่า-อู่ทอง</option>
+        <option value="pt">พลเทพ</option>
+         <option value="bt">บรมธาตุ</option>
+         <option value="mnr">มโนรมย์</option>
+         <option value="mhr">มหาราช</option>
+         <option value="cpd">ท้ายเขื่อนเจ้าพระยา</option>
+         <option value="rama6d">ท้ายเขื่อนพระราม 6</option>
+    </select>
+<div class="container" style="height:800px;" ng-controller="cgraphController">
+    <div id="hello"></div>
+</div>
+
+{%endblock%}
